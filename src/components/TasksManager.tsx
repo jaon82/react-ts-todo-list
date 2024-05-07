@@ -4,6 +4,7 @@ import TaskRow from "./TaskRow";
 import TasksTable from "./TasksTable";
 import Empty from "../assets/empty.svg";
 import styles from "./TasksManager.module.css";
+import { useState } from "react";
 
 export interface Task {
   id: number;
@@ -11,43 +12,36 @@ export interface Task {
   title: string;
 }
 
-const tasks: Task[] = [
-  {
-    id: 1,
-    done: false,
-    title:
-      "Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.",
-  },
-  {
-    id: 2,
-    done: false,
-    title:
-      "Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.",
-  },
-  {
-    id: 3,
-    done: false,
-    title:
-      "Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.",
-  },
-  {
-    id: 4,
-    done: true,
-    title:
-      "Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.",
-  },
-  {
-    id: 5,
-    done: true,
-    title:
-      "Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.",
-  },
-];
-
 export default function TasksManager() {
+  const [tasks, setTasks] = useState<Task[]>([]);
+
+  const handleAddTask = (taskTitle: string) => {
+    const newTask: Task = {
+      id: Date.now(),
+      done: false,
+      title: taskTitle,
+    };
+    setTasks((currentTasks) => [...currentTasks, newTask]);
+  };
+
+  const handleCheckTask = (id: number) => {
+    const tasksUpdated = tasks.map((task) => {
+      if (task.id === id) {
+        task.done = !task.done;
+      }
+      return task;
+    });
+    setTasks(tasksUpdated);
+  };
+
+  const handleRemoveTask = (id: number) => {
+    const tasksUpdated = tasks.filter((task) => task.id !== id);
+    setTasks(tasksUpdated);
+  };
+
   return (
     <main className={styles.container}>
-      <TaskInput />
+      <TaskInput onAddTask={handleAddTask} />
       <TasksTable>
         <TasksCount tasks={tasks} />
         {tasks.length === 0 && (
@@ -60,7 +54,12 @@ export default function TasksManager() {
           </div>
         )}
         {tasks.map((task) => (
-          <TaskRow key={task.id} task={task} />
+          <TaskRow
+            key={task.id}
+            task={task}
+            onCheckTask={handleCheckTask}
+            onRemoveTask={handleRemoveTask}
+          />
         ))}
       </TasksTable>
     </main>
