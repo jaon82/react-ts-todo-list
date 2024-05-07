@@ -15,6 +15,11 @@ export interface Task {
 export default function TasksManager() {
   const [tasks, setTasks] = useState<Task[]>([]);
 
+  const sortedTasks = [
+    ...tasks.filter((task) => !task.done),
+    ...tasks.filter((task) => task.done),
+  ];
+
   const handleAddTask = (taskTitle: string) => {
     const newTask: Task = {
       id: Date.now(),
@@ -53,7 +58,7 @@ export default function TasksManager() {
             </div>
           </div>
         )}
-        {tasks.map((task) => (
+        {sortedTasks.map((task) => (
           <TaskRow
             key={task.id}
             task={task}
