@@ -1,0 +1,47 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  width: 40vw;
+  gap: 0.5rem;
+  margin-top: calc(-3.375rem / 2);
+  :focus {
+    outline: transparent;
+  }
+
+  input {
+    height: 3.375rem;
+    background-color: var(--gray-500);
+    border-radius: 8px;
+    padding: 1rem;
+    width: 100%;
+    border: 1px solid var(--gray-700);
+
+    &::placeholder {
+      color: var(--gray-300);
+    }
+    &:focus,
+    &:not(:placeholder-shown) {
+      border: 1px solid var(--purple-dark);
+      color: var(--gray-100);
+    }
+  }
+
+  button {
+    color: var(--gray-100);
+    height: 3.25rem;
+    background-color: var(--blue-dark);
+    border-radius: 8px;
+    padding: 1rem;
+    font-size: 0.875rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+
+    &:hover {
+      background-color: var(--blue);
+    }
+  }
+}

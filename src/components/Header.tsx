@@ -1,9 +1,9 @@
-import styes from "./Header.module.css";
+import styles from "./Header.module.css";
 import Logo from "../assets/logo.svg";
 
 export default function Header() {
   return (
-    <header className={styes.header}>
+    <header className={styles.header}>
       <img src={Logo} alt="ToDo List logo" />
     </header>
   );
