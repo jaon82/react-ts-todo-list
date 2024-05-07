@@ -4,3 +4,22 @@
   justify-content: start;
   align-items: center;
 }
+.noTasksContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding: 4rem 1.5rem;
+  border-radius: 0.5rem;
+  border-top: solid 1px #333;
+  width: 100%;
+
+  p {
+    color: var(--gray-300);
+  }
+  p:first-child {
+    font-weight: bold;
+  }
+}
