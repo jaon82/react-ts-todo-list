@@ -1,6 +1,6 @@
 import TaskInput from "./TaskInput";
 import TasksCount from "./TasksCount";
-import TasksRow from "./TasksRow";
+import TaskRow from "./TaskRow";
 import TasksTable from "./TasksTable";
 
 import styles from "./TasksManager.module.css";
@@ -11,7 +11,7 @@ export default function TasksManager() {
       <TaskInput />
       <TasksTable>
         <TasksCount />
-        <TasksRow />
+        <TaskRow />
       </TasksTable>
     </main>
   );
