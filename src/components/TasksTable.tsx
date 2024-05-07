@@ -1,4 +1,4 @@
-//import styes from "./TaskManager.module.css";
+import styles from "./TasksTable.module.css";
 
 import { ReactNode } from "react";
 
@@ -7,5 +7,5 @@ interface TasksTableProps {
 }
 
 export default function TasksTable({ children }: TasksTableProps) {
-  return <>{children}</>;
+  return <div className={styles.container}>{children}</div>;
 }

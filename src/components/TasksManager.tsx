@@ -10,10 +10,8 @@ export default function TasksManager() {
     <main className={styles.container}>
       <TaskInput />
       <TasksTable>
-        <>
-          <TasksCount />
-          <TasksRow />
-        </>
+        <TasksCount />
+        <TasksRow />
       </TasksTable>
     </main>
   );

@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.createdLabel {
+  color: var(--blue);
+  font-size: 0.875rem;
+  margin-right: 0.5rem;
+}
+.finishedLabel {
+  color: var(--purple);
+  font-size: 0.875rem;
+  margin-right: 0.5rem;
+}
+.counter {
+  color: var(--gray-200);
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  background-color: var(--gray-400);
+  border-radius: 999px;
+}
